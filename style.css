@@ -1,0 +1,315 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --accent-color: #8BC34A;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+}
+
+body {
+    font-family: 'Segoe UI', '微软雅黑', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+    margin: 0 1.5rem 1.2rem 0;
+    image-rendering: optimizeQuality;
+}
+
+nav {
+    background-color: var(--primary-color);
+    padding: 0.8rem 1rem;
+    position: fixed;
+    top: 8rem;
+    width: 100%;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: #f0f9f1;
+    text-decoration: none;
+    padding: 1.2rem 1.5rem;  /* 增加垂直内边距 */
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    font-size: 1.1rem;       /* 增大字号 */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+    nav a {
+        padding: 1rem 1.2rem;  /* 移动端保持比例 */
+        font-size: 1.05rem;    /* 字号微调 */
+    }
+}
+
+nav a:hover, nav a.active {
+    color: #f0f9f1;
+    background-color: transparent;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+main {
+    max-width: 1200px;
+    margin: 14rem auto 2rem; /* header(8rem) + nav(6rem) */
+    padding: 0 1rem;
+}
+
+.intro {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.research-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0;
+}
+
+.section-title {
+    margin: 2.2rem 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(95deg, var(--primary-color) 30%, rgba(255,255,255,0) 90%);
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+    line-height: 1.4;
+    padding: 0.4rem 0;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        margin: 1.8rem 0;
+        padding: 0.9rem 1.2rem;
+    }
+    .section-title h2 {
+        font-size: 1.3rem;
+    }
+}
+
+.section-title:hover {
+    background: linear-gradient(95deg, var(--primary-color) 35%, rgba(255,255,255,0) 90%);
+}
+
+.title-line {
+    width: 100%;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    margin: 0.8rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.title-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background: var(--accent-color);
+    animation: lineFlow 2s ease-in-out infinite;
+}
+
+@keyframes lineFlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(250%); }
+}
+
+.research-areas li {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+/* 新增时间线样式 */
+.timeline-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 人才培养模块间距调整 */
+.member-info {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.member-info p {
+    margin: 1rem 0;
+}
+
+.degree {
+    margin-top: 1.5rem;
+    padding-left: 2rem;
+    color: #444;
+    margin-bottom: 0.8rem;
+}
+
+.affiliation {
+    margin-top: 1.2rem;
+    padding-left: 2.5rem;
+    color: #666;
+    border-left: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.awards-grid,
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.award-category h6,
+.project-type h6 {
+    color: var(--primary-color);
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+.project-type ul {
+    padding-left: 1.2rem;
+}
+
+.project-type li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .awards-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 招生模块样式 */
+.admission-section {
+    margin: 3rem 0;
+    background: rgba(255,255,255,0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.admission-content {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+.phd-admission, 
+.master-admission {
+    padding: 1.5rem;
+    border-left: 4px solid var(--accent-color);
+    background: #f8f8f8;
+    border-radius: 4px;
+}
+
+.admission-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+}
+
+.admission-section h4 {
+    color: #444;
+    margin: 1rem 0 0.8rem;
+    font-size: 1.1rem;
+}
+
+.admission-section ul {
+    padding-left: 1.8rem;
+    margin: 0.8rem 0;
+}
+
+.admission-section li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .admission-content {
+        grid-template-columns: 1fr;
+    }
+    .phd-admission, 
+    .master-admission {
+        padding: 1rem;
+    }
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    nav {
+        margin-top: 6rem; /* 移动端header高度调整 */
+    }
+    
+    main {
+        margin-top: 6rem;
+    }
+}
